@@ -1,0 +1,35 @@
+<!-- films/templates/films/films_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Список фильмов</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Список фильмов</h1>
+        <a href="{% url 'add_film' %}" class="btn btn-success mb-3">Добавить новый фильм</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Название</th>
+                    <th>Описание</th>
+                    <th>Отзыв</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for film in films %}
+                <tr>
+                    <td>{{ film.title }}</td>
+                    <td>{{ film.description }}</td>
+                    <td>{{ film.review }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
